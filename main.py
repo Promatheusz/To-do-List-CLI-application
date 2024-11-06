@@ -3,29 +3,34 @@ import file_handling
 
 # Menu function to display the options
 def print_menu():
-    print("1. Add a task")
-    print("2. Delete a task")
-    print("3. View tasks")
-    print("4. Exit")
+    print("a) Add a task")
+    print("b) Delete a task")
+    print("c) Make a task as completed")
+    print("d) View tasks list")
+    print("e) Exit a program")
 
 # Main function that runs the application
 def main():
-    # Initialize task class
-    load_tasks = []
+    # Loading a tasks from the csv file
+    load_tasks = file_handling.import_tasks("import_tasks.csv")
+    # Initialize TodoList object
     todolist = methods.ToDoList(load_tasks)
     # Run the application
     while True:
         print_menu()
         choice = input("Enter your choice: ")
-        if choice == '1':
+        if choice == 'a':
+            # Create a syntex
             task = input("Enter the task: ")
             todolist.add_task(task)
-        elif choice == '2':
-            task = input("Enter the task: ")
-            todolist.delete_task(task)
-        elif choice == '3':
+        elif choice == 'b':
+            task_id = input("Enter the task id: ")
+            todolist.delete_task(task_id)
+        elif choice == 'c':
+            task_id = input("Enter completed task id: ")
+        elif choice == 'd':
             todolist.view_tasks()
-        elif choice == '4':
+        elif choice == 'e':
             break
         else:
             print("Invalid choice. Please try again.")
