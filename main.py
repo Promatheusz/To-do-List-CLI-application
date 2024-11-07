@@ -20,14 +20,15 @@ def main():
         print_menu()
         choice = input("Enter your choice: ")
         if choice == 'a':
-            # Create a syntex
-            task = input("Enter the task: ")
-            todolist.add_task(task)
+            description = input("Enter task description: ")
+            date = input("Enter task deadline (yyyy-mm-dd): ")
+            todolist.add_task(description, date)
         elif choice == 'b':
             task_id = input("Enter the task id: ")
             todolist.delete_task(task_id)
         elif choice == 'c':
             task_id = input("Enter completed task id: ")
+            todolist.make_task_completed(task_id)
         elif choice == 'd':
             todolist.view_tasks()
         elif choice == 'e':

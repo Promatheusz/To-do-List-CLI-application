@@ -3,7 +3,7 @@ import csv
 
 # Csv file structure : ID(number), Task(string), Status(string), Date(date)
 # ID = unique number for tasks
-# Task = description of task to be done
+# Description = description of task to be done
 # Date_status = status of task determine by date (Pending, Due, Missed)
 # Task_status = status of task added by user (Incomplete, Completed)
 # Date = deadline for task (empty if no deadline)
