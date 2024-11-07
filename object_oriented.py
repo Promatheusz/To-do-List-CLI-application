@@ -1,6 +1,7 @@
 # Class with methods for handling tasks
 import time
 
+# A class to represent the user action menu for handling tasks. (Parent class)
 class UserActionMenu:
     def __init__(self, tasks):
         self.tasks = tasks
@@ -26,7 +27,10 @@ class UserActionMenu:
         else:
             self.update_date_status()
             for i, task in enumerate(self.tasks, start=1):
+                # tasks[1:] - slice the list to remove the ID
+                # ', '.join() - join the list elements with a comma into a single string
                 print(f"{i}. {', '.join(task[1:])}")
+#  A class to represent a to-do list, inheriting from UserActionMenu. (Child class)
 class ToDoList(UserActionMenu):
     def __init__(self, tasks):
         super().__init__(tasks)

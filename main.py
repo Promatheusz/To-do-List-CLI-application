@@ -15,7 +15,7 @@ def main():
     load_tasks = file_handling.import_tasks("import_tasks.csv")
     # Initialize TodoList object
     todolist = object_oriented.ToDoList(load_tasks)
-    # Run the application
+    # Run the application in a loop
     while True:
         print_menu()
         choice = input("Enter your choice: ")
