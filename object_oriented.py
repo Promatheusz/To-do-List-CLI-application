@@ -12,15 +12,27 @@ class UserActionMenu:
         self.update_date_status()
         print("Task added successfully.")
     def delete_task(self, task_id):
-        for task in self.tasks:
-            if task[0] == int(task_id):
-                self.tasks.remove(task)
-                print("Task deleted successfully.")
+        try:
+            task_id = int(task_id)
+            for task in self.tasks:
+                if task[0] == int(task_id):
+                    self.tasks.remove(task)
+                    print("Task deleted successfully.")
+                    return # Exit the method after deleting the task
+            print("Task ID not found.")
+        except ValueError:
+            print("Invalid task ID.")
     def make_task_completed(self, task_id):
-        for task in self.tasks:
-            if task[0] == int(task_id):
-                task[3] = "Completed"
-                print("Task marked as completed.")
+        try:
+            task_id = int(task_id)
+            for task in self.tasks:
+                if task[0] == int(task_id):
+                    task[3] = "Completed"
+                    print("Task marked as completed.")
+                    return # Exit the method after marking the task as completed
+            print("Task ID not found.")
+        except ValueError:
+            print("Invalid task ID.")
     def view_tasks(self):
         if not self.tasks:
                 print("No tasks found.")
