@@ -6,11 +6,15 @@ class UserActionMenu:
     def __init__(self, tasks):
         self.tasks = tasks
     def add_task(self, description, date):
-        id_task = len(self.tasks) + 1
-        temp = [id_task, description, "", "Incomplete", date]
-        self.tasks.append(temp)
-        self.update_date_status()
-        print("Task added successfully.")
+        try:
+            id_task = len(self.tasks) + 1
+            temp = [id_task, description, "", "Incomplete", date]
+            self.tasks.append(temp)
+            if date != "":
+                self.update_date_status()
+            print("Task added successfully.")
+        except Exception as e:
+            print(f"An error occurred while adding the task: {e}")
     def delete_task(self, task_id):
         try:
             task_id = int(task_id)

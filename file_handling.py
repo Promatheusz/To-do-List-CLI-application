@@ -1,7 +1,7 @@
 # File to save, import, export csv files
 import csv
 
-# Csv file structure : ID(number), Task(string), Status(string), Date(date)
+# Csv file structure : ID(number), Description(string), Date_status(string), Task_status(string), Date(date)
 # ID = unique number for tasks
 # Description = description of task to be done
 # Date_status = status of task determine by date (Pending, Due, Missed)
