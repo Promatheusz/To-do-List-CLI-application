@@ -1,15 +1,14 @@
 # Class with methods for handling tasks
 import time
 
-class ToDoList:
+class UserActionMenu:
     def __init__(self, tasks):
         self.tasks = tasks
     def add_task(self, description, date):
         id_task = len(self.tasks) + 1
-        date_status = ""
-        task_status = "Incomplete"
-        temp = [id_task, description, date_status, task_status, date]
+        temp = [id_task, description, "", "Incomplete", date]
         self.tasks.append(temp)
+        self.update_date_status()
         print("Task added successfully.")
     def delete_task(self, task_id):
         for task in self.tasks:
@@ -22,14 +21,15 @@ class ToDoList:
                 task[3] = "Completed"
                 print("Task marked as completed.")
     def view_tasks(self):
-        if len(self.tasks) == 0:
+        if not self.tasks:
                 print("No tasks found.")
         else:
+            self.update_date_status()
             for i, task in enumerate(self.tasks, start=1):
                 print(f"{i}. {', '.join(task[1:])}")
-class TaskTime:
+class ToDoList(UserActionMenu):
     def __init__(self, tasks):
-        self.tasks = tasks
+        super().__init__(tasks)
     def update_date_status(self):
         for task in self.tasks:
             if task[4] == "":

@@ -1,4 +1,4 @@
-import methods
+import object_oriented
 import file_handling
 
 # Menu function to display the options
@@ -14,7 +14,7 @@ def main():
     # Loading a tasks from the csv file
     load_tasks = file_handling.import_tasks("import_tasks.csv")
     # Initialize TodoList object
-    todolist = methods.ToDoList(load_tasks)
+    todolist = object_oriented.ToDoList(load_tasks)
     # Run the application
     while True:
         print_menu()
